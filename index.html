@@ -537,6 +537,8 @@ section {
   color: var(--electric);
 
   font-family: 'Orbitron', sans-serif;
+
+  flex-shrink: 0;
 }
 
 .roadmap-content {
@@ -556,6 +558,159 @@ section {
 .roadmap-content li {
   padding: 7px 0;
   line-height: 1.7;
+}
+
+.roadmap-phase-label {
+  display: inline-block;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--electric);
+  background: var(--electric-dim);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 10px;
+}
+
+.roadmap-content li::before {
+  content: '→ ';
+  color: var(--electric);
+  opacity: 0.7;
+}
+
+/* AIRDROP */
+
+.airdrop-section {
+  max-width: 1100px;
+  margin: 60px auto 0;
+}
+
+.airdrop-stages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.stage-card {
+  padding: 22px 18px;
+  text-align: center;
+  border-radius: var(--radius);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.stage-card.completed {
+  border-color: rgba(0,229,255,0.4);
+  opacity: 0.75;
+}
+
+.stage-card.active {
+  border-color: var(--electric);
+  box-shadow: 0 0 24px var(--electric-glow);
+}
+
+.stage-card.upcoming {
+  opacity: 0.5;
+}
+
+.stage-badge {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.stage-card.completed .stage-badge {
+  background: rgba(0,229,255,0.1);
+  color: var(--electric);
+}
+
+.stage-card.active .stage-badge {
+  background: var(--electric);
+  color: black;
+  font-weight: 700;
+}
+
+.stage-card.upcoming .stage-badge {
+  background: rgba(255,255,255,0.05);
+  color: var(--silver);
+}
+
+.stage-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  color: var(--silver);
+  margin-bottom: 6px;
+}
+
+.stage-amount {
+  font-family: 'Sora', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.stage-desc {
+  font-size: 12px;
+  color: var(--silver);
+  line-height: 1.5;
+}
+
+.airdrop-milestones {
+  margin-top: 20px;
+}
+
+.airdrop-milestones h3 {
+  color: white;
+  font-family: 'Sora', sans-serif;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.milestone-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+.milestone-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  transition: .3s;
+}
+
+.milestone-item:hover {
+  border-color: var(--electric);
+}
+
+.milestone-target {
+  font-size: 13px;
+  color: var(--silver);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.milestone-reward {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  color: var(--electric);
+  white-space: nowrap;
 }
 
 /* TOKENOMICS */
@@ -592,6 +747,33 @@ section {
   color: white;
   margin-bottom: 10px;
   font-weight: 700;
+}
+
+.safu-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 24px auto 0;
+  justify-content: center;
+}
+
+.safu-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: var(--radius-sm);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  font-size: 14px;
+  color: var(--silver-soft);
+}
+
+.safu-badge span {
+  color: var(--electric);
+  font-size: 18px;
 }
 
 /* CONTRACT */
@@ -829,7 +1011,7 @@ NEVER GIVE UP <br>
 
 <p class="hero-sub">
 RTY is more than a meme coin.
-It’s a movement built around resilience,
+It's a movement built around resilience,
 consistency and belief.
 
 A global community proving that persistence wins.
@@ -870,7 +1052,7 @@ Persistence <br>
 
 <p>
 RTY is more than a meme coin.
-It’s a movement built around one message:
+It's a movement built around one message:
 Never Give Up & Try Again.
 </p>
 
@@ -887,7 +1069,7 @@ where the message itself becomes bigger than the token.
 
 <p>
 This is not just about charts or hype.
-It’s about mindset, community and proving that persistence wins.
+It's about mindset, community and proving that persistence wins.
 </p>
 
 </div>
@@ -958,13 +1140,14 @@ growth and global recognition.
 <div class="roadmap-dot">01</div>
 
 <div class="roadmap-content glass">
-
-<h3>Community Growth</h3>
+<div class="roadmap-phase-label">PHASE 1 — CURRENT</div>
+<h3>Gathering the Unbreakable</h3>
 
 <ul>
-<li>Build active loyal community</li>
-<li>Expand social reach</li>
-<li>Increase engagement worldwide</li>
+<li>Launch the RTY token on Pump.fun</li>
+<li>Build active loyal community on Telegram and X (Twitter)</li>
+<li>Expand social reach worldwide</li>
+<li>Launch viral memes focused on the power of the "Retry" button</li>
 </ul>
 
 </div>
@@ -976,13 +1159,14 @@ growth and global recognition.
 <div class="roadmap-dot">02</div>
 
 <div class="roadmap-content glass">
-
-<h3>$10,000 Giveaway</h3>
+<div class="roadmap-phase-label">PHASE 2 — LIFTOFF</div>
+<h3>$10,000 Giveaway & Pool Migration</h3>
 
 <ul>
-<li>8 stage campaign</li>
-<li>Currently on Stage 7</li>
-<li>Rewarding loyal supporters</li>
+<li>Complete Stages 7 and 8 of the $10k airdrop marathon</li>
+<li>Host the celebratory 5,000,000 RTY giveaway during pool migration</li>
+<li>Trend on DEXScreener — send the charts to the moon</li>
+<li>Get listed on CoinMarketCap and CoinGecko</li>
 </ul>
 
 </div>
@@ -994,13 +1178,14 @@ growth and global recognition.
 <div class="roadmap-dot">03</div>
 
 <div class="roadmap-content glass">
-
-<h3>5M RTY Giveaway</h3>
+<div class="roadmap-phase-label">PHASE 3 — EXPANSION</div>
+<h3>Global Expansion & Lifestyle</h3>
 
 <ul>
-<li>5,000,000 RTY launch giveaway</li>
-<li>Expand awareness globally</li>
-<li>Boost community growth</li>
+<li>Roll out the massive $50k and $100k giveaways</li>
+<li>Secure the first centralized exchange (CEX) listings</li>
+<li>Launch official "RETRY" merchandise</li>
+<li>Partner with influencers who talk openly about failure and the path to success</li>
 </ul>
 
 </div>
@@ -1012,19 +1197,101 @@ growth and global recognition.
 <div class="roadmap-dot">04</div>
 
 <div class="roadmap-content glass">
-
-<h3>Future Giveaways</h3>
+<div class="roadmap-phase-label">PHASE 4 — ENDGAME</div>
+<h3>Mega Giveaways & Top Rankings</h3>
 
 <ul>
-<li>$50,000 giveaway</li>
-<li>$100,000 giveaway</li>
-<li>$500,000 giveaway</li>
-<li>$1,000,000 giveaway</li>
+<li>$250,000 giveaway — Tier-2 Exchange listings</li>
+<li>$500,000 giveaway — Tier-1 Exchanges (Bybit / OKX)</li>
+<li>$1,000,000 Super Giveaway — Top 10 Meme Coins</li>
 </ul>
 
 </div>
 
 </div>
+
+</div>
+
+</section>
+
+<!-- AIRDROP -->
+
+<section id="airdrop">
+
+<div class="center">
+
+<span class="section-label">AIRDROP PROGRAM</span>
+
+<h2 class="section-title">
+Epic Giveaway <span class="highlight">Marathon</span>
+</h2>
+
+<p class="section-sub">
+We prove with actions that we keep our word.
+Already distributed $4,000 to early supporters.
+</p>
+
+</div>
+
+<div class="airdrop-section">
+
+  <div class="airdrop-stages">
+
+    <div class="stage-card completed">
+      <div class="stage-badge">COMPLETED</div>
+      <div class="stage-num">STAGES 1–6</div>
+      <div class="stage-amount">$4,000</div>
+      <div class="stage-desc">Successfully distributed to early supporters ✓</div>
+    </div>
+
+    <div class="stage-card active">
+      <div class="stage-badge">ACTIVE NOW</div>
+      <div class="stage-num">STAGE 7</div>
+      <div class="stage-amount">$1,000</div>
+      <div class="stage-desc">Rewarding the most engaged community members</div>
+    </div>
+
+    <div class="stage-card upcoming">
+      <div class="stage-badge">COMING SOON</div>
+      <div class="stage-num">STAGE 8 — GRAND FINALE</div>
+      <div class="stage-amount">$5,000</div>
+      <div class="stage-desc">The epic conclusion of our $10k marathon</div>
+    </div>
+
+    <div class="stage-card upcoming">
+      <div class="stage-badge">ON MIGRATION</div>
+      <div class="stage-num">PUMP.FUN LAUNCH</div>
+      <div class="stage-amount">5M RTY</div>
+      <div class="stage-desc">Instant giveaway at bonding curve completion</div>
+    </div>
+
+  </div>
+
+  <div class="airdrop-milestones glass" style="padding: 32px;">
+    <h3>🎯 Milestone Mega-Giveaways</h3>
+    <ul class="milestone-list">
+      <li class="milestone-item">
+        <div class="milestone-target">CMC / CoinGecko Listing</div>
+        <div class="milestone-reward">$50,000</div>
+      </li>
+      <li class="milestone-item">
+        <div class="milestone-target">First CEX Listings</div>
+        <div class="milestone-reward">$100,000</div>
+      </li>
+      <li class="milestone-item">
+        <div class="milestone-target">Tier-2 Exchanges</div>
+        <div class="milestone-reward">$250,000</div>
+      </li>
+      <li class="milestone-item">
+        <div class="milestone-target">Tier-1 Exchanges (Bybit / OKX)</div>
+        <div class="milestone-reward">$500,000</div>
+      </li>
+      <li class="milestone-item">
+        <div class="milestone-target">Top 10 Meme Coins</div>
+        <div class="milestone-reward">$1,000,000</div>
+      </li>
+    </ul>
+  </div>
 
 </div>
 
@@ -1057,23 +1324,31 @@ Transparent, fair and community-focused structure.
 </div>
 
 <div class="token-card glass">
-<div class="token-card-pct">100%</div>
-<div class="token-card-label">Circulating</div>
-<p>Entire supply already in circulation</p>
-</div>
-
-<div class="token-card glass">
-<div class="token-card-pct">LOCKED</div>
-<div class="token-card-label">Liquidity</div>
-<p>Liquidity locked via Pump.fun</p>
+<div class="token-card-pct">97%</div>
+<div class="token-card-label">Community &amp; Free Market</div>
+<p>Full decentralization from the very first seconds of launch</p>
 </div>
 
 <div class="token-card glass">
 <div class="token-card-pct">3%</div>
 <div class="token-card-label">Team Allocation</div>
-<p>Reserved for project growth</p>
+<p>Modest reserve for project growth — we only grow when the ecosystem grows</p>
 </div>
 
+<div class="token-card glass">
+<div class="token-card-pct">LOCKED</div>
+<div class="token-card-label">Liquidity</div>
+<p>100% LP locked via Pump.fun — zero rug pull risk</p>
+</div>
+
+</div>
+
+<div class="safu-row">
+  <div class="safu-badge"><span>🔒</span> 100% LP Locked</div>
+  <div class="safu-badge"><span>💸</span> 0% Buy Tax</div>
+  <div class="safu-badge"><span>💸</span> 0% Sell Tax</div>
+  <div class="safu-badge"><span>✅</span> 100% SAFU</div>
+  <div class="safu-badge"><span>🌐</span> 100% Circulating Supply</div>
 </div>
 
 </section>
